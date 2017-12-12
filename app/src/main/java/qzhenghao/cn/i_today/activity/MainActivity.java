@@ -15,6 +15,7 @@ import android.widget.Toast;
 import qzhenghao.cn.i_today.BaseActivity;
 import qzhenghao.cn.i_today.R;
 import qzhenghao.cn.i_today.fragment.OneFragment;
+import qzhenghao.cn.i_today.fragment.ThreeFragment;
 import qzhenghao.cn.i_today.fragment.TwoFragment;
 
 //主页
@@ -23,7 +24,9 @@ public class MainActivity extends BaseActivity {
     private View[] tabs = new View[4];
 
     private OneFragment oneFragment;
+
     private TwoFragment twoFragment;
+    private ThreeFragment threeFragment;
 
     private FragmentManager fragmentManager;
 
@@ -189,6 +192,47 @@ public class MainActivity extends BaseActivity {
                     currentTab = 1;
                 }
                 break;
+            case 2:
+                if (currentTab != 2) {
+                    //默认Tab的颜色
+                    clearTabSelection();
+                    //隐藏fragement
+                    hideFragement(fragmentTransaction);
+
+                    tab_text3.setTextColor(Color.parseColor("#78e0ff"));
+                    tab_img1.setImageResource(R.drawable.simle_logo_01);
+                    tab_img2.setImageResource(R.drawable.simle_logo_02);
+                    tab_img3.setImageResource(R.drawable.simle_logo_00);
+                    tab_img4.setImageResource(R.drawable.simle_logo_04);
+                    if (threeFragment == null) {
+                        threeFragment = new ThreeFragment();
+                        fragmentTransaction.add(R.id.container, threeFragment, FRAGMENT_TAGS[2]);
+                    } else {
+                        fragmentTransaction.show(threeFragment);
+                    }
+                    current = 2;
+                    currentTab = 2;
+                }
+                break;
+//            case 3:
+//                if (currentTab != 3) {
+//                    clearTabSelection();
+//                    hideFragement(fragmentTransaction);
+//                    tab_text4.setTextColor(Color.parseColor("#78e0ff"));
+//                    tab_img1.setImageResource(R.drawable.simle_logo_01);
+//                    tab_img2.setImageResource(R.drawable.simle_logo_02);
+//                    tab_img3.setImageResource(R.drawable.simle_logo_03);
+//                    tab_img4.setImageResource(R.drawable.simle_logo_00);
+//                    if (fourFragment == null) {
+//                        fourFragment = new FourFragment();
+//                        fragmentTransaction.add(R.id.container, fourFragment, FRAGMENT_TAGS[3]);
+//                    } else {
+//                        fragmentTransaction.show(fourFragment);
+//                    }
+//                    current = 3;
+//                    currentTab = 3;
+//                }
+//                break;
 
         }
         //事务提交
@@ -216,9 +260,9 @@ public class MainActivity extends BaseActivity {
         if (twoFragment != null) {
             fragmentTransaction.hide(twoFragment);
         }
-//        if (threeFragment != null) {
-//            fragmentTransaction.hide(threeFragment);
-//        }
+        if (threeFragment != null) {
+            fragmentTransaction.hide(threeFragment);
+        }
 //        if (fourFragment != null) {
 //            fragmentTransaction.hide(fourFragment);
 //        }

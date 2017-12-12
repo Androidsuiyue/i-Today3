@@ -217,7 +217,7 @@ public class OneFragment extends BaseFragment {
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-
+    //异步请求url
     private void loadData() {
         new AsyncTask<String, String, String>() {
             @Override

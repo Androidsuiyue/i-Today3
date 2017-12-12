@@ -55,4 +55,13 @@ public class Urls {
     //    音悦台打榜
     public final static String GET_TOP_VIDEO_LIST = "http://mapiv2.yinyuetai.com/vchart/trend.json?&area=ML&offset=0&size=20";
 
+    public final static String GET_CCTV_EPG_LIST = "http://api.cntv.cn/epg/epginfo?c=cctv1,cctv2,cctv3,cctv4,cctveurope,cctvamerica,cctv5,cctv6,cctv7&serviceId=channel&d=20171208&t=jsonp&cb=setItem1";
+
+
+
+
+
+
+
+
 }
